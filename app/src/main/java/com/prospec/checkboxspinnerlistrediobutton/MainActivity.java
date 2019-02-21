@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 //        จัดการเหตุการณ์
         this.handleClickEvents();
 
+//       spinner
         populatePropellants();
 
     }
@@ -79,8 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    //SAVE
-
+//                    SAVE
                     Spacecraft s=new Spacecraft();
                     s.setName(name);
                     s.setPropellant(propellant);
@@ -90,15 +90,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }// end handleClickEvents
 
 
 
-    }
-
+//    ส่วนของการทำ spinner
     private void populatePropellants()
     {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item);
 
+//        รายการที่แสดงใน spinner
         adapter.add("None");
         adapter.add("Chemical Energy");
         adapter.add("Nuclear Energy");
