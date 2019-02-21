@@ -89,6 +89,20 @@
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="#b83cd4"
+                android:clickable="true"
+                android:padding="5dp"
+                android:text="Next"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

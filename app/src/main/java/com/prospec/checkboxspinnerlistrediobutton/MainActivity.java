@@ -1,5 +1,6 @@
 package com.prospec.checkboxspinnerlistrediobutton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.prospec.checkboxspinnerlistrediobutton.lands.LandsActivity;
+
 //class Main
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText txtName;
     private CheckBox chkTechnologyExists;
     private Spinner spPropellant;
-    private Button btnAdd;
+    private Button btnAdd, next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +53,19 @@ public class MainActivity extends AppCompatActivity {
 //       spinner
         populatePropellants();
 
+//        button next
+        bnext();
+
     }
 
-//        get event
+    //        get event
     private void initializeViews()
     {
         txtName= (TextInputEditText) findViewById(R.id.nameTxt);
         chkTechnologyExists= (CheckBox) findViewById(R.id.techExists);
         spPropellant= (Spinner) findViewById(R.id.sp);
         btnAdd= (Button) findViewById(R.id.addBtn);
+        next = (Button) findViewById(R.id.next);
     }// end initializeViews
 
 //    คลิกจัดการเหตุการณ์
@@ -97,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
     }// end handleClickEvents
 
 //    ส่วนของการทำ spinner
-    private void populatePropellants()
-    {
+    private void populatePropellants() {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item);
 
 //        รายการที่แสดงใน spinner
@@ -113,6 +119,16 @@ public class MainActivity extends AppCompatActivity {
         spPropellant.setAdapter(adapter);
         spPropellant.setSelection(0);
 
-    }
+    }// end spinner
 
-}
+    private void bnext() {
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LandsActivity.class));
+
+            }
+        });
+    }// end button next
+}// Main Class

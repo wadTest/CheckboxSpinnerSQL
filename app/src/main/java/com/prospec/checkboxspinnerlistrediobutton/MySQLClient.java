@@ -23,7 +23,6 @@ public class MySQLClient {
 
     public MySQLClient(Context c) {
         this.c = c;
-
     }
 
     //    SAVE/INSERT URL
