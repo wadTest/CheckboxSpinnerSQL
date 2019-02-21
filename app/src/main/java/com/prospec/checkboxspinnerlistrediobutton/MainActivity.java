@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+//class Main
 public class MainActivity extends AppCompatActivity {
 
     //ประกาศตัวแปร
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton
+//        FloatingActionButton ยังไม่ได้ใช้งาน
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +70,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 //                GET VALUES
-                String name=txtName.getText().toString();
-                String propellant=spPropellant.getSelectedItem().toString();
-                Boolean technologyexists=chkTechnologyExists.isChecked();
+                String name=txtName.getText().toString().trim();// EditText
+                String propellant=spPropellant.getSelectedItem().toString();// Spinner
+                Boolean technologyexists=chkTechnologyExists.isChecked();// CheckBox
 
-//              การตรวจสอบด้านลูกค้าขั้นพื้นฐาน
+//                 การตรวจสอบด้านลูกค้าขั้นพื้นฐาน
+//                EditText ความยาว <1 || Spinner ความยาว ก็ต้อง <1
+//                || ความหมายคือ ถ้าทั้งสองค่าเป้นเท็จ ผลลัพธ์จะเป็นเท็จ
                 if((name.length()<1 || propellant.length()<1  ))
                 {
+
                     Toast.makeText(MainActivity.this, "กรุณากรอกทุกช่อง", Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -84,15 +88,13 @@ public class MainActivity extends AppCompatActivity {
                     Spacecraft s=new Spacecraft();
                     s.setName(name);
                     s.setPropellant(propellant);
-                    s.setTechnologyExists(technologyexists ? 1 : 0);
+                    s.setTechnologyExists(technologyexists ? 1 : 0);// Checkbox t=1, f=0
 
                     new MySQLClient(MainActivity.this).add(s,txtName,spPropellant);
                 }
             }
         });
     }// end handleClickEvents
-
-
 
 //    ส่วนของการทำ spinner
     private void populatePropellants()

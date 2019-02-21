@@ -1,19 +1,15 @@
 package com.prospec.checkboxspinnerlistrediobutton;
 
+//class get and set
 public class Spacecraft {
 
-
-    /*
-    INSTANCE FIELDS
-     */
+//    ประกาศตัวแปร
     private int id;
     private String name;
     private String propellant;
     private int technologyExists;
 
-    /*
-    GETTERS AND SETTERS
-     */
+//    ตัวรับและตัวตั้ง
     public int getId() {
         return id;
     }
@@ -45,14 +41,7 @@ public class Spacecraft {
     public void setTechnologyExists(int technologyExists) {
         this.technologyExists = technologyExists;
     }
-
-
-
-
-    /*
-    TOSTRING
-     */
-    @Override
+//    toString
     public String toString() {
         return name;
     }
