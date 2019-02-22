@@ -69,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }// end initializeViews
 
 //    คลิกจัดการเหตุการณ์
-    private void handleClickEvents()
-    {
+    private void handleClickEvents() {
 //        EVENTS : ADD
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
